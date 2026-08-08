@@ -1,0 +1,54 @@
+`timescale 1ns/1ps
+
+module calculator_tb;
+
+reg [3:0] A;
+reg [3:0] B;
+reg [1:0] operation;
+
+wire [7:0] result;
+
+calculator uut (
+    .A(A),
+    .B(B),
+    .operation(operation),
+    .result(result)
+);
+
+initial begin
+
+    $dumpfile("calculator.vcd");
+    $dumpvars(0, calculator_tb);
+
+    $monitor("Time=%0t A=%d B=%d Operation=%b Result=%d",
+             $time, A, B, operation, result);
+
+    // Addition: 8 + 4 = 12
+    A = 8;
+    B = 4;
+    operation = 2'b00;
+    #10;
+
+    // Subtraction: 8 - 4 = 4
+    A = 8;
+    B = 4;
+    operation = 2'b01;
+    #10;
+
+    // Multiplication: 6 * 3 = 18
+    A = 6;
+    B = 3;
+    operation = 2'b10;
+    #10;
+
+    // Division: 8 / 2 = 4
+    A = 8;
+    B = 2;
+    operation = 2'b11;
+    #10;
+
+    $finish;
+
+end
+
+endmodule

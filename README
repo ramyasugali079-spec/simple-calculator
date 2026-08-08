@@ -1,0 +1,72 @@
+# Simple Calculator using Verilog
+
+## Description
+
+This project implements a simple calculator using Verilog HDL.
+
+The calculator performs four basic arithmetic operations:
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+## Inputs
+
+- A - 4-bit input
+- B - 4-bit input
+- Operation - 2-bit operation selector
+
+## Output
+
+- Result - 8-bit calculation result
+
+## Operation Table
+
+| Operation | Function |
+|-----------|----------|
+| 00 | Addition |
+| 01 | Subtraction |
+| 10 | Multiplication |
+| 11 | Division |
+
+## Example
+
+A = 8
+B = 4
+
+8 + 4 = 12
+8 - 4 = 4
+8 × 4 = 32
+8 ÷ 4 = 2
+
+## Tools Used
+
+- Verilog HDL
+- Icarus Verilog
+- GTKWave
+- GitHub
+
+## Files
+
+- `calculator.v` - Calculator design code
+- `calculator_tb.v` - Testbench
+- `simulation/` - Simulation waveform
+
+## Simulation
+
+Compile:
+
+iverilog -o calculator_sim calculator.v calculator_tb.v
+
+Run:
+
+vvp calculator_sim
+
+View waveform:
+
+gtkwave calculator.vcd
+
+## Result
+
+The simple calculator was successfully designed and simulated using Verilog HDL.
